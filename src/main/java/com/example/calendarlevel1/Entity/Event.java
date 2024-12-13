@@ -23,20 +23,20 @@ public class Event {
     @Column(name="id",updatable = false)
     private  Long id;
 
-    @Column(name="author", updatable = false)
+    @Column(name="author", length = 10, updatable = false, nullable = false)
     private String author;
 
-    @Column(name="password", updatable = false)
+    @Column(name="password", length = 10, updatable = false)
     private String password;
 
-    @Column(name="title")
+    @Column(name="title", length = 20, nullable = false)
     private String title;
 
-    @Column(name="content")
+    @Column(name="content", length = 30, nullable = false)
     private String content;
 
     @CreatedDate
-    @Column(name="created_at", updatable = false)
+    @Column(name="created_at",  updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
