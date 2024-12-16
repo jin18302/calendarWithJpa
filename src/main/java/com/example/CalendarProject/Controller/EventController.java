@@ -1,9 +1,10 @@
-package com.example.calendarlevel1.Controller;
+package com.example.CalendarProject.Controller;
 
-import com.example.calendarlevel1.EventDto.addEventRequest;
-import com.example.calendarlevel1.EventDto.eventResponse;
-import com.example.calendarlevel1.EventDto.updateEventRequest;
-import com.example.calendarlevel1.Service.eventService;
+import com.example.CalendarProject.EventDto.addEventRequest;
+import com.example.CalendarProject.EventDto.deleteEventRequest;
+import com.example.CalendarProject.EventDto.eventResponse;
+import com.example.CalendarProject.EventDto.updateEventRequest;
+import com.example.CalendarProject.Service.eventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +37,8 @@ public class EventController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void>deleteEvent(@PathVariable Long id){
-        service.deleteEvent(id);
+    public ResponseEntity<Void>deleteEvent(@PathVariable Long id, @RequestBody deleteEventRequest request){
+        service.deleteEvent(id, request);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

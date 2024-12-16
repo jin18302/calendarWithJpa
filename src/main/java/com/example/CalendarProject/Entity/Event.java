@@ -1,6 +1,6 @@
-package com.example.calendarlevel1.Entity;
+package com.example.CalendarProject.Entity;
 
-import com.example.calendarlevel1.EventDto.updateEventRequest;
+import com.example.CalendarProject.EventDto.updateEventRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

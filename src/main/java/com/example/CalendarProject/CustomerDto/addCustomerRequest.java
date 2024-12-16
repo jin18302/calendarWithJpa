@@ -1,6 +1,6 @@
-package com.example.calendarlevel1.CustomerDto;
+package com.example.CalendarProject.CustomerDto;
 
-import com.example.calendarlevel1.Entity.Customer;
+import com.example.CalendarProject.Entity.Customer;
 import lombok.Getter;
 import lombok.Setter;
 

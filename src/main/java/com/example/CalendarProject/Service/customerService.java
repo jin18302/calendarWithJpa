@@ -1,10 +1,10 @@
-package com.example.calendarlevel1.Service;
+package com.example.CalendarProject.Service;
 
-import com.example.calendarlevel1.CustomerDto.CustomerResponse;
-import com.example.calendarlevel1.CustomerDto.addCustomerRequest;
-import com.example.calendarlevel1.CustomerDto.updateCustomerRequest;
-import com.example.calendarlevel1.Entity.Customer;
-import com.example.calendarlevel1.Repository.customerRepository;
+import com.example.CalendarProject.CustomerDto.CustomerResponse;
+import com.example.CalendarProject.CustomerDto.addCustomerRequest;
+import com.example.CalendarProject.CustomerDto.updateCustomerRequest;
+import com.example.CalendarProject.Entity.Customer;
+import com.example.CalendarProject.Repository.customerRepository;
 import jakarta.transaction.Transactional;
 import lombok.*;
 import org.springframework.http.HttpStatus;

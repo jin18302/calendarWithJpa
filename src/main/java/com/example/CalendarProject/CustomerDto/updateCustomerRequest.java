@@ -1,4 +1,4 @@
-package com.example.calendarlevel1.CustomerDto;
+package com.example.CalendarProject.CustomerDto;
 
 import lombok.Getter;
 import lombok.Setter;

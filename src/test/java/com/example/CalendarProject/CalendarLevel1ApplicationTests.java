@@ -1,4 +1,4 @@
-package com.example.calendarlevel1;
+package com.example.CalendarProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

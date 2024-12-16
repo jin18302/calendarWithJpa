@@ -1,10 +1,11 @@
-package com.example.calendarlevel1.Service;
+package com.example.CalendarProject.Service;
 
-import com.example.calendarlevel1.EventDto.addEventRequest;
-import com.example.calendarlevel1.EventDto.updateEventRequest;
-import com.example.calendarlevel1.EventDto.eventResponse;
-import com.example.calendarlevel1.Entity.Event;
-import com.example.calendarlevel1.Repository.eventRepository;
+import com.example.CalendarProject.EventDto.addEventRequest;
+import com.example.CalendarProject.EventDto.deleteEventRequest;
+import com.example.CalendarProject.EventDto.updateEventRequest;
+import com.example.CalendarProject.EventDto.eventResponse;
+import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Repository.eventRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,18 +36,37 @@ public class eventService {
 
     @Transactional
     public eventResponse updateEvent(Long id, updateEventRequest request) {
-     return null;
-    }
-
-    public void  deleteEvent(Long id){
         Optional<Event> findEvent = repository.findById(id);
 
         if(findEvent.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"not found id:" + id);
         }
 
-        repository.deleteById(id);
+        Event event = findEvent.get();
+
+        if (event.getEmail().equals(request.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The emails don't match.");
+        }
+
+        event.update(request);
+
+        return new eventResponse(event);
     }
 
+    public void  deleteEvent(Long id, deleteEventRequest request){
+        Optional<Event> findEvent = repository.findById(id);
+
+        if(findEvent.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"not found id:" + id);
+        }
+
+        Event event = findEvent.get();
+
+        if (event.getEmail().equals(request.getEmail())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The emails don't match.");
+        }
+
+        repository.deleteById(id);
+    }
 
 }

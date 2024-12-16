@@ -1,14 +1,13 @@
-package com.example.calendarlevel1.Controller;
+package com.example.CalendarProject.Controller;
 
-import com.example.calendarlevel1.CustomerDto.CustomerResponse;
-import com.example.calendarlevel1.CustomerDto.addCustomerRequest;
-import com.example.calendarlevel1.CustomerDto.updateCustomerRequest;
-import com.example.calendarlevel1.Service.customerService;
+import com.example.CalendarProject.CustomerDto.CustomerResponse;
+import com.example.CalendarProject.CustomerDto.addCustomerRequest;
+import com.example.CalendarProject.CustomerDto.updateCustomerRequest;
+import com.example.CalendarProject.Service.customerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
