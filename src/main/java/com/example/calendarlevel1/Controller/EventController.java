@@ -1,8 +1,8 @@
 package com.example.calendarlevel1.Controller;
 
-import com.example.calendarlevel1.Dto.addEventRequest;
-import com.example.calendarlevel1.Dto.eventResponse;
-import com.example.calendarlevel1.Dto.updateEventRequest;
+import com.example.calendarlevel1.EventDto.addEventRequest;
+import com.example.calendarlevel1.EventDto.eventResponse;
+import com.example.calendarlevel1.EventDto.updateEventRequest;
 import com.example.calendarlevel1.Service.eventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/calendar")
+@RequestMapping("/calendar/event")
+
 public class EventController {
+
     private final eventService service;
 
     @PostMapping

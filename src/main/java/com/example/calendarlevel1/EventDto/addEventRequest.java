@@ -1,4 +1,4 @@
-package com.example.calendarlevel1.Dto;
+package com.example.calendarlevel1.EventDto;
 
 import com.example.calendarlevel1.Entity.Event;
 import lombok.AllArgsConstructor;
@@ -18,8 +18,6 @@ public class addEventRequest  {
 
     public Event toEntity(){
     return Event.builder()
-            .author(author)
-            .password(password)
             .title(title)
             .content(content)
             .build();
