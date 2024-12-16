@@ -1,8 +1,8 @@
 package com.example.calendarlevel1.Service;
 
-import com.example.calendarlevel1.Dto.addEventRequest;
-import com.example.calendarlevel1.Dto.updateEventRequest;
-import com.example.calendarlevel1.Dto.eventResponse;
+import com.example.calendarlevel1.EventDto.addEventRequest;
+import com.example.calendarlevel1.EventDto.updateEventRequest;
+import com.example.calendarlevel1.EventDto.eventResponse;
 import com.example.calendarlevel1.Entity.Event;
 import com.example.calendarlevel1.Repository.eventRepository;
 import jakarta.transaction.Transactional;
@@ -35,19 +35,7 @@ public class eventService {
 
     @Transactional
     public eventResponse updateEvent(Long id, updateEventRequest request) {
-        Optional<Event> findEvent = repository.findById(id);
-
-        if (findEvent.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "not found id:" + id);
-        }
-
-        Event event = findEvent.get();
-
-        if (!event.checkPassword(request.getPassword())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Password doesn't match");
-        }
-        event.update(request);
-        return new eventResponse(event);
+     return null;
     }
 
     public void  deleteEvent(Long id){

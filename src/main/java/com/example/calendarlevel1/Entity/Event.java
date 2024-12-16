@@ -1,6 +1,6 @@
 package com.example.calendarlevel1.Entity;
 
-import com.example.calendarlevel1.Dto.updateEventRequest;
+import com.example.calendarlevel1.EventDto.updateEventRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,47 +16,40 @@ import java.time.LocalDateTime;
 @Getter
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name="event")
+@Table(name="event", schema = "calendarlevel2")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id",updatable = false)
-    private  Long id;
+    @Column(name = "id", updatable = false)
+    private Long id;
 
-    @Column(name="author", updatable = false)
-    private String author;
+    @ManyToOne
+    @JoinColumn(name = "customer_email")
+    private Customer email;
 
-    @Column(name="password", updatable = false)
-    private String password;
-
-    @Column(name="title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name="content")
+    @Column(name = "content")
     private String content;
 
     @CreatedDate
-    @Column(name="created_at", updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name="update_at")
+    @Column(name = "update_at")
     private LocalDateTime updateAt;
 
+
     @Builder
-    public Event(String author, String password, String title, String content){
-        this.author=author;
-        this.password=password;
-        this.title=title;
-        this.content=content;
+    public Event(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
-    public void update(updateEventRequest request){
-        this.title=request.getTitle();
-        this.content=request.getContent();
-    }
-
-    public boolean checkPassword(String password){
-        return this.password.equals(password);
+    public void update(updateEventRequest request) {
+        this.title = request.getTitle();
+        this.content = request.getContent();
     }
 }

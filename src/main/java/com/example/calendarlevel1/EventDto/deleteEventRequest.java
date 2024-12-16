@@ -1,4 +1,4 @@
-package com.example.calendarlevel1.Dto;
+package com.example.calendarlevel1.EventDto;
 
 import lombok.Getter;
 

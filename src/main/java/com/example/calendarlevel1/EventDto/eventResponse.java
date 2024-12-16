@@ -1,4 +1,4 @@
-package com.example.calendarlevel1.Dto;
+package com.example.calendarlevel1.EventDto;
 
 import com.example.calendarlevel1.Entity.Event;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,6 @@ public class eventResponse {
 
     public eventResponse(Event event){
         this.id=event.getId();
-        this.author=event.getAuthor();
         this.title=event.getTitle();
         this.content= event.getContent();
         this.createdAt=event.getCreatedAt();
