@@ -9,11 +9,13 @@ import lombok.Setter;
 public class addCustomerRequest {
     private String name;
     private String email;
+    private String password;
 
     public Customer toEntity(){
     return Customer.builder()
             .name(name)
             .email(email)
+            .password(password)
             .build();
     }
 }

@@ -22,14 +22,18 @@ public class Customer {
     @Column(name="name")
     private String name;
 
+    @Column(name="password")
+    private String password;
+
     @CreatedDate
     @Column(name="joindate")
     private LocalDateTime joinDate;
 
     @Builder
-    public Customer(String name, String email){
+    public Customer(String name, String email,String password){
         this.name=name;
         this.email=email;
+        this.password=password;
     }
 
     public void update(String name){
