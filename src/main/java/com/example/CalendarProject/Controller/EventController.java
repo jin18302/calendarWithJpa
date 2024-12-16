@@ -1,9 +1,9 @@
-package com.example.calendarlevel1.Controller;
+package com.example.CalendarProject.Controller;
 
-import com.example.calendarlevel1.Dto.addEventRequest;
-import com.example.calendarlevel1.Dto.eventResponse;
-import com.example.calendarlevel1.Dto.updateEventRequest;
-import com.example.calendarlevel1.Service.eventService;
+import com.example.CalendarProject.Dto.addEventRequest;
+import com.example.CalendarProject.Dto.eventResponse;
+import com.example.CalendarProject.Dto.updateEventRequest;
+import com.example.CalendarProject.Service.eventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

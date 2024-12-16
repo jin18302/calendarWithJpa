@@ -1,10 +1,10 @@
-package com.example.calendarlevel1.Service;
+package com.example.CalendarProject.Service;
 
-import com.example.calendarlevel1.Dto.addEventRequest;
-import com.example.calendarlevel1.Dto.updateEventRequest;
-import com.example.calendarlevel1.Dto.eventResponse;
-import com.example.calendarlevel1.Entity.Event;
-import com.example.calendarlevel1.Repository.eventRepository;
+import com.example.CalendarProject.Dto.addEventRequest;
+import com.example.CalendarProject.Dto.updateEventRequest;
+import com.example.CalendarProject.Dto.eventResponse;
+import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Repository.eventRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

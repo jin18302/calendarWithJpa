@@ -1,6 +1,6 @@
-package com.example.calendarlevel1.Dto;
+package com.example.CalendarProject.Dto;
 
-import com.example.calendarlevel1.Entity.Event;
+import com.example.CalendarProject.Entity.Event;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
