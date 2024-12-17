@@ -37,7 +37,7 @@ public class customerService {
         return new CustomerResponse(customer);
     }
 
-    public String login(String email, String password){
+    public Long login(String email, String password){
         Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
         System.out.println("-");
 
@@ -57,7 +57,7 @@ public class customerService {
 
         System.out.println("로그인되었습니다");
 
-        return customer.getEmail();
+        return customer.getId();
     }
 
 }

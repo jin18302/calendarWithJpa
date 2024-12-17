@@ -9,15 +9,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class CustomerResponse {
-    String name;
-    String email;
-    String password;
+    private Long id;
+    private String name;
+    private String email;
+    private String password;
     LocalDateTime joinDate;
 
-    public CustomerResponse(Customer customer){
-        this.name=customer.getName();
-        this.email=customer.getEmail();
-        this.password=customer.getPassword();
-        this.joinDate=customer.getJoinDate();
+    public CustomerResponse(Customer customer) {
+        this.name = customer.getName();
+        this.email = customer.getEmail();
+        this.password = customer.getPassword();
+        this.joinDate = customer.getJoinDate();
     }
 }
