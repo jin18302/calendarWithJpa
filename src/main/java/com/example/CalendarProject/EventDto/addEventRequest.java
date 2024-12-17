@@ -11,8 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class addEventRequest  {
-    private String author;
-    private String password;
     private String title;
     private String content;
 

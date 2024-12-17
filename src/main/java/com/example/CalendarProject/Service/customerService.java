@@ -1,13 +1,12 @@
 package com.example.CalendarProject.Service;
 
 import com.example.CalendarProject.CustomerDto.CustomerResponse;
-import com.example.CalendarProject.CustomerDto.addCustomerRequest;
-import com.example.CalendarProject.CustomerDto.updateCustomerRequest;
+import com.example.CalendarProject.CustomerDto.joinUpCustomerRequest;
 import com.example.CalendarProject.Entity.Customer;
 import com.example.CalendarProject.Repository.customerRepository;
-import jakarta.transaction.Transactional;
 import lombok.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,7 +22,7 @@ public class customerService {
 
     private final customerRepository repository;
 
-    public CustomerResponse saveCustomer(addCustomerRequest request){
+    public CustomerResponse signUpCustomer(joinUpCustomerRequest request){
         Pattern pattern = Pattern.compile("\\w+@\\w+\\.\\w+");
         Matcher matcher = pattern.matcher(request.getEmail());
 
@@ -36,42 +35,25 @@ public class customerService {
         return new CustomerResponse(customer);
     }
 
-    public CustomerResponse findByEmail(String email){
+    public String login(String email, String password){
         Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
+        System.out.println("-");
 
         if(findCustomer.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
+            System.out.println("이메일이 비어있음");
+            throw new ResponseStatusException(HttpStatusCode.valueOf(401), "No member signed up with that email exists");
+
+        }
+        Customer customer = findCustomer.get();
+
+        if(!customer.getPassword().equals(password)){
+            throw new ResponseStatusException(HttpStatusCode.valueOf(401),"Password doesn't match");
         }
 
-        Customer customer = findCustomer.get();
-        return new CustomerResponse(customer);
 
-    }
+        System.out.println(customer.getEmail());
 
-    public CustomerResponse updateInfo(updateCustomerRequest request){
-
-        Optional<Customer> findCustomer = repository.findCustomerByEmail(request.getEmail());
-
-        if(findCustomer.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
-        }
-
-        Customer customer = findCustomer.get();
-        customer.update(request.getName());
-
-        return new CustomerResponse(customer);
-    }
-
-    @Transactional
-    public void deleteCustomer(String email){
-       Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
-
-       if(findCustomer.isEmpty()){
-           throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
-       }
-
-       repository.deleteByEmail(email);
-
+        return customer.getEmail();
     }
 
 }

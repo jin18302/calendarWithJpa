@@ -11,11 +11,13 @@ import java.time.LocalDateTime;
 public class CustomerResponse {
     String name;
     String email;
+    String password;
     LocalDateTime joinDate;
 
     public CustomerResponse(Customer customer){
         this.name=customer.getName();
         this.email=customer.getEmail();
+        this.password=customer.getPassword();
         this.joinDate=customer.getJoinDate();
     }
 }

@@ -1,7 +1,6 @@
 package com.example.CalendarProject.Service;
 
 import com.example.CalendarProject.EventDto.addEventRequest;
-import com.example.CalendarProject.EventDto.deleteEventRequest;
 import com.example.CalendarProject.EventDto.updateEventRequest;
 import com.example.CalendarProject.EventDto.eventResponse;
 import com.example.CalendarProject.Entity.Event;
@@ -44,16 +43,12 @@ public class eventService {
 
         Event event = findEvent.get();
 
-        if (event.getEmail().equals(request.getEmail())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The emails don't match.");
-        }
-
         event.update(request);
 
         return new eventResponse(event);
     }
 
-    public void  deleteEvent(Long id, deleteEventRequest request){
+    public void  deleteEvent(Long id){
         Optional<Event> findEvent = repository.findById(id);
 
         if(findEvent.isEmpty()){
@@ -61,10 +56,6 @@ public class eventService {
         }
 
         Event event = findEvent.get();
-
-        if (event.getEmail().equals(request.getEmail())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The emails don't match.");
-        }
 
         repository.deleteById(id);
     }
