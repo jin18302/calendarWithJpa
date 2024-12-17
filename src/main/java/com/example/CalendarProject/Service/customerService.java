@@ -32,6 +32,8 @@ public class customerService {
 
         Customer customer = repository.save(request.toEntity());
 
+        System.out.println("회원가입되었습니다");
+
         return new CustomerResponse(customer);
     }
 
@@ -40,7 +42,7 @@ public class customerService {
         System.out.println("-");
 
         if(findCustomer.isEmpty()){
-            System.out.println("이메일이 비어있음");
+
             throw new ResponseStatusException(HttpStatusCode.valueOf(401), "No member signed up with that email exists");
 
         }
@@ -52,6 +54,8 @@ public class customerService {
 
 
         System.out.println(customer.getEmail());
+
+        System.out.println("로그인되었습니다");
 
         return customer.getEmail();
     }

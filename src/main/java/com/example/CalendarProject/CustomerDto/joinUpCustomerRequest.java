@@ -8,13 +8,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class joinUpCustomerRequest {
-    @NonNull
     private String name;
 
-    @NonNull
+
     private String email;
 
-    @NonNull
+
     private String password;
 
     public Customer toEntity(){

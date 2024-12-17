@@ -38,6 +38,7 @@ public class CustomerController {
 
         Cookie cookie = new Cookie("user_email", customerEmail);
 
+
         response.addCookie(cookie);
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -47,6 +48,8 @@ public class CustomerController {
         Cookie cookie = new Cookie("user_email",null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
+
+        System.out.println("로그아웃되었습니다");
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
