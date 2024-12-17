@@ -17,6 +17,10 @@ import java.time.LocalDateTime;
 public class Customer {
 
     @Id
+    @Column(name="id")
+    private Long id;
+
+    @Column(name="email")
     private String email;
 
     @Column(name="name")

@@ -24,8 +24,8 @@ public class Event {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_email")
-    private Customer email;
+    @JoinColumn(name = "customer_id")
+    private Customer customerId;
 
     @Column(name = "title", nullable = false)
     private String title;

@@ -24,22 +24,21 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<CustomerResponse> findCustomerByEmail(@PathVariable("email") String email) {
-        CustomerResponse response = service.findByEmail(email);
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomerResponse> findCustomerByEmail(@PathVariable("id") Long id) {
+        CustomerResponse response = service.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @PatchMapping
-    public ResponseEntity<CustomerResponse> updateCustomerByEmail(@RequestBody updateCustomerRequest request){
-       CustomerResponse response = service.updateInfo(request);
+    @PatchMapping("/{id}")
+    public ResponseEntity<CustomerResponse> updateCustomerByEmail(@PathVariable("id") Long id, @RequestBody updateCustomerRequest request){
+       CustomerResponse response = service.updateInfo(id, request);
        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @DeleteMapping("/{email}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable String email){
-        service.deleteCustomer(email);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable("id") Long id){
+        service.deleteCustomer(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }

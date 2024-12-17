@@ -36,8 +36,8 @@ public class customerService {
         return new CustomerResponse(customer);
     }
 
-    public CustomerResponse findByEmail(String email){
-        Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
+    public CustomerResponse findById(Long id){
+        Optional<Customer> findCustomer = repository.findCustomerById(id);
 
         if(findCustomer.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
@@ -48,9 +48,9 @@ public class customerService {
 
     }
 
-    public CustomerResponse updateInfo(updateCustomerRequest request){
+    public CustomerResponse updateInfo(Long id, updateCustomerRequest request){
 
-        Optional<Customer> findCustomer = repository.findCustomerByEmail(request.getEmail());
+        Optional<Customer> findCustomer = repository.findCustomerById(id);
 
         if(findCustomer.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
@@ -63,14 +63,14 @@ public class customerService {
     }
 
     @Transactional
-    public void deleteCustomer(String email){
-       Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
+    public void deleteCustomer(Long id){
+       Optional<Customer> findCustomer = repository.findCustomerById(id);
 
        if(findCustomer.isEmpty()){
            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
        }
 
-       repository.deleteByEmail(email);
+       repository.deleteById(id);
 
     }
 
