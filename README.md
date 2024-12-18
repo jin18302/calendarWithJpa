@@ -19,4 +19,3 @@ erDiagram
         LocalDatetime create_at
         LocalDatetime update_at
     }
-    CUSTOMER ||--o{ EVENT : "create"
