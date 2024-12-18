@@ -30,9 +30,6 @@ public class Comment {
     @JoinColumn(name = "event_id")
     private Event eventId;
 
-    @Column(name="title")
-    private String title;
-
     @Column(name="content")
     private String content;
 
@@ -45,13 +42,11 @@ public class Comment {
     private LocalDateTime updateAt;
 
     @Builder
-    public Comment(String title, String content){
-        this.title=title;
+    public Comment( String content){
         this.content=content;
     }
 
     public void update(CommentUpdateRequest request){
-        this.title = request.getTitle();
         this.content = request.getContent();
     }
 

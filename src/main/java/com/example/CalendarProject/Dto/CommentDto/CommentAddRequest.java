@@ -10,12 +10,10 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class CommentAddRequest {
-    private String title;
     private String content;
 
     public Comment toEntity(){
      return Comment.builder()
-             .title(title)
              .content(content)
              .build();
     }
