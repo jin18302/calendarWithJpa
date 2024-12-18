@@ -22,11 +22,11 @@ public class Customer {
     @Column(name = "id")
     private Long id;
 
-//    @OneToMany(cascade = CascadeType.REMOVE)
-//    private List<Event> events;
-//
-//    @OneToMany(cascade = CascadeType.REMOVE)
-//    private List<Comment> comments;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Event> events;
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Comment> comments;
 
     private String email;
 
