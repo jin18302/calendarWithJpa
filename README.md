@@ -9,6 +9,7 @@ erDiagram
     }
    EVENT {
         Long id
+        CUSTOMER customer_id
         String title
         String content
         LocalDatetime create_at
