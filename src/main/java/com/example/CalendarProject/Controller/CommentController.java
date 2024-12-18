@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/calendar/comment")
 public class CommentController {
 
     private final CommentService service;
@@ -28,7 +29,7 @@ public class CommentController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<CommentResponse> updateComment(@PathVariable Long id, CommentUpdateRequest request) {
+    public ResponseEntity<CommentResponse> updateComment(@PathVariable Long id, @RequestBody CommentUpdateRequest request) {
         CommentResponse response = service.updateComment(id, request);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

@@ -2,6 +2,7 @@ package com.example.CalendarProject.Dto.CommentDto;
 
 import com.example.CalendarProject.Entity.Comment;
 import com.example.CalendarProject.Entity.Customer;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class CommentAddRequest {
+    @NotBlank
     private String content;
 
     public Comment toEntity(){

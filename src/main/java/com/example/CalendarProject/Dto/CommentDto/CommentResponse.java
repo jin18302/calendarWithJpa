@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CommentResponse {
     private Long id;
-
     private String content;
     private LocalDateTime createAt;
     protected LocalDateTime updateAt;

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -20,6 +21,12 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+//    @OneToMany(cascade = CascadeType.REMOVE)
+//    private List<Event> events;
+//
+//    @OneToMany(cascade = CascadeType.REMOVE)
+//    private List<Comment> comments;
 
     private String email;
 
