@@ -14,10 +14,10 @@ public class CustomerResponse {
     String email;
     LocalDateTime joinDate;
 
-    public CustomerResponse(Customer customer){
-        this.id=customer.getId();
-        this.name=customer.getName();
-        this.email=customer.getEmail();
-        this.joinDate=customer.getJoinDate();
+    public CustomerResponse(Customer customer) {
+        this.id = customer.getId();
+        this.name = customer.getName();
+        this.email = customer.getEmail();
+        this.joinDate = customer.getJoinDate();
     }
 }

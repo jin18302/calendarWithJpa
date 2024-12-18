@@ -19,25 +19,25 @@ public class EventController {
     private final eventService service;
 
     @PostMapping
-    public ResponseEntity<eventResponse> saveEvent(@RequestBody addEventRequest request){
-       eventResponse eventResponse= service.saveEvent(request);
-       return ResponseEntity.status(HttpStatus.CREATED).body(eventResponse);
+    public ResponseEntity<eventResponse> saveEvent(@RequestBody addEventRequest request) {
+        eventResponse eventResponse = service.saveEvent(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(eventResponse);
     }
 
-    @GetMapping ("/{id}")
-    public ResponseEntity<eventResponse> findById(@PathVariable("id") Long id){
-       eventResponse eventResponse = service.findById(id);
-       return ResponseEntity.status(HttpStatus.OK).body(eventResponse);
+    @GetMapping("/{id}")
+    public ResponseEntity<eventResponse> findById(@PathVariable("id") Long id) {
+        eventResponse eventResponse = service.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(eventResponse);
     }
 
-    @PatchMapping ("/{id}")
-    public ResponseEntity<eventResponse> updateEvent(@PathVariable Long id, @RequestBody updateEventRequest request){
-       eventResponse eventResponse = service.updateEvent(id, request);
-       return ResponseEntity.status(HttpStatus.OK).body(eventResponse);
+    @PatchMapping("/{id}")
+    public ResponseEntity<eventResponse> updateEvent(@PathVariable Long id, @RequestBody updateEventRequest request) {
+        eventResponse eventResponse = service.updateEvent(id, request);
+        return ResponseEntity.status(HttpStatus.OK).body(eventResponse);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void>deleteEvent(@PathVariable Long id, @RequestBody deleteEventRequest request){
+    public ResponseEntity<Void> deleteEvent(@PathVariable Long id, @RequestBody deleteEventRequest request) {
         service.deleteEvent(id, request);
         return new ResponseEntity<>(HttpStatus.OK);
     }

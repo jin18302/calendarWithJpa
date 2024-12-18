@@ -31,13 +31,13 @@ public class CustomerController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<CustomerResponse> updateCustomerByEmail(@PathVariable("id") Long id, @RequestBody updateCustomerRequest request){
-       CustomerResponse response = service.updateInfo(id, request);
-       return ResponseEntity.status(HttpStatus.OK).body(response);
+    public ResponseEntity<CustomerResponse> updateCustomerByEmail(@PathVariable("id") Long id, @RequestBody updateCustomerRequest request) {
+        CustomerResponse response = service.updateInfo(id, request);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable("id") Long id){
+    public ResponseEntity<Void> deleteCustomer(@PathVariable("id") Long id) {
         service.deleteCustomer(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

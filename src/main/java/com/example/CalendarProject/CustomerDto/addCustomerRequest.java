@@ -10,10 +10,10 @@ public class addCustomerRequest {
     private String name;
     private String email;
 
-    public Customer toEntity(){
-    return Customer.builder()
-            .name(name)
-            .email(email)
-            .build();
+    public Customer toEntity() {
+        return Customer.builder()
+                .name(name)
+                .email(email)
+                .build();
     }
 }
