@@ -25,10 +25,8 @@ public class customerService {
     private final PasswordEncoder passwordEncoder;
 
     public CustomerResponse signUpCustomer(joinUpCustomerRequest request){
-        /*TODO: 응답객체에는 사용자가 입력한 비밀번호를 담아서 보내고, 엔티티객체에는 인코딩된 비밀번호를 저장한다
-         */
 
-        String encode = passwordEncoder.encode(request.getPassword());//인코딩된 비밀번호
+        String encode = passwordEncoder.encode(request.getPassword());
         request.setPassword(encode);
 
         Customer customer = repository.save(request.toEntity());

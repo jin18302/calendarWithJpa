@@ -12,14 +12,12 @@ import java.time.LocalDateTime;
 public class CustomerResponse {
    private String name;
    private String email;
-   private String password;
    private LocalDateTime joinDate;
 
 
     public CustomerResponse(Customer customer){
         this.name=customer.getName();
         this.email=customer.getEmail();
-        this.password=customer.getPassword();
         this.joinDate=customer.getJoinDate();
     }
 
@@ -27,7 +25,6 @@ public class CustomerResponse {
     public CustomerResponse(String name, String email, String password, LocalDateTime joinDate){
         this.name=name;
         this.email=email;
-        this.password=password;
         this.joinDate=joinDate;
     }
 }
