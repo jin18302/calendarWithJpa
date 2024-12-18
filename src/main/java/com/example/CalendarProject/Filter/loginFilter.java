@@ -20,7 +20,6 @@ public class loginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String url = request.getRequestURI();
-        System.out.println(url);
 
         if (!isWhiteUrl(url)) {
             HttpSession session = request.getSession(false);

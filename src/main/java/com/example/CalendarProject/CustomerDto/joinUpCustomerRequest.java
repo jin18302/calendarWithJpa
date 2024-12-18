@@ -10,9 +10,7 @@ import lombok.Setter;
 public class joinUpCustomerRequest {
     private String name;
 
-
     private String email;
-
 
     private String password;
 

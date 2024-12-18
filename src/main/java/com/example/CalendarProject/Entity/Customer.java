@@ -13,11 +13,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name="customer", schema = "calendarlevel2")
+@Table(name="customer")
 public class Customer {
 
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="email")
@@ -30,7 +31,7 @@ public class Customer {
     private String password;
 
     @CreatedDate
-    @Column(name="joindate")
+    @Column(name="join_date")
     private LocalDateTime joinDate;
 
     @Builder

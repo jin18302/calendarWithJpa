@@ -28,13 +28,13 @@ public class CustomerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@Valid @RequestBody loginCustomerRequest request, HttpServletResponse response) {
+    public ResponseEntity<Void> login( @RequestBody loginCustomerRequest request, HttpServletResponse response) {
 
 
         Long customerId = service.login(request.getEmail(), request.getPassword());
 
 
-        Cookie cookie = new Cookie("user_id", customerId.toString());
+        Cookie cookie = new Cookie("user_id", customerId+"");
 
 
         response.addCookie(cookie);
