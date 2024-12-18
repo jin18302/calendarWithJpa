@@ -1,3 +1,7 @@
+
+
+
+## ERD
 ```mermaid
 erDiagram
     CUSTOMER {
