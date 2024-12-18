@@ -1,6 +1,7 @@
 package com.example.CalendarProject.Controller;
 
 import com.example.CalendarProject.Dto.addEventRequest;
+import com.example.CalendarProject.Dto.deleteEventRequest;
 import com.example.CalendarProject.Dto.eventResponse;
 import com.example.CalendarProject.Dto.updateEventRequest;
 import com.example.CalendarProject.Service.eventService;
@@ -34,8 +35,8 @@ public class EventController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void>deleteEvent(@PathVariable Long id){
-        service.deleteEvent(id);
+    public ResponseEntity<Void>deleteEvent(@PathVariable Long id, @RequestBody deleteEventRequest request){
+        service.deleteEvent(id,request);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

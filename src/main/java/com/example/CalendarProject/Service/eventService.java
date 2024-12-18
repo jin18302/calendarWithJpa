@@ -1,6 +1,7 @@
 package com.example.CalendarProject.Service;
 
 import com.example.CalendarProject.Dto.addEventRequest;
+import com.example.CalendarProject.Dto.deleteEventRequest;
 import com.example.CalendarProject.Dto.updateEventRequest;
 import com.example.CalendarProject.Dto.eventResponse;
 import com.example.CalendarProject.Entity.Event;
@@ -50,13 +51,18 @@ public class eventService {
         return new eventResponse(event);
     }
 
-    public void  deleteEvent(Long id){
+    public void  deleteEvent(Long id, deleteEventRequest request){
         Optional<Event> findEvent = repository.findById(id);
 
         if(findEvent.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"not found id:" + id);
         }
 
+        Event event = findEvent.get();
+
+        if (!event.checkPassword(request.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Password doesn't match");
+        }
         repository.deleteById(id);
     }
 
