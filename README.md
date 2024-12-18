@@ -1,3 +1,14 @@
+ ## 📅Project duration
+2024.12.12~2024.12.18
+
+## ⚙️Development Environment
+```intelij``` ```java17```
+
+## information
+- 댓글, 사용자, 일정 연관관계 양방향 설정, casecade적용
+- 댓글 crud기능 구현
+
+
 ## API명세서
 
 | 기능         | url                                        | httpmethod | request                                                     | response                                                                                        | HttpStatus |
