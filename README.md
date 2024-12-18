@@ -1,17 +1,20 @@
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+<div class="mermaid">
 erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER {
+    USER {
+        int id
         string name
-        string custNumber
-        string sector
+        string email
     }
-    ORDER ||--|{ LINE-ITEM : contains
-    ORDER {
-        int orderNumber
-        string deliveryAddress
+    POST {
+        int id
+        string title
+        string content
+        int user_id
     }
-    LINE-ITEM {
-        string productCode
-        int quantity
-        float pricePerUnit
-    }
+    USER ||--o| POST : "writes"
+</div>
