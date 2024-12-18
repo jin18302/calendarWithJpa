@@ -31,8 +31,6 @@ public class customerService {
 
         Customer customer = repository.save(request.toEntity());
 
-        System.out.println(encode);
-
         return new CustomerResponse(customer);
     }
 
