@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Slf4j
 public class loginFilter implements Filter {
-    final String[] WHITE_URL = {"/","/calendar/customer/signup", "/calendar/customer/login", "/calendar/customer/logout"};
+    final String[] WHITE_URL = {"/","/calendar/customer/signup", "/calendar/customer/login", "/calendar/customer/logout", };
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +22,7 @@ public class CustomerController {
     private final customerService service;
 
     @PostMapping("/signup")
-    public ResponseEntity<CustomerResponse> joinUp( @RequestBody joinUpCustomerRequest request) {
+    public ResponseEntity<CustomerResponse> joinUp(@Valid @RequestBody joinUpCustomerRequest request) {
         CustomerResponse response = service.signUpCustomer(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -29,9 +30,6 @@ public class CustomerController {
 
     @PostMapping("/login")
     public ResponseEntity<Void> login(@Valid @RequestBody loginCustomerRequest request, HttpServletResponse response) {
-
-        System.out.println(request.getPassword()+"password");
-        System.out.println(request.getEmail()+"email");
 
         String customerEmail = service.login(request.getEmail(), request.getPassword());
 
@@ -48,8 +46,6 @@ public class CustomerController {
         Cookie cookie = new Cookie("user_email",null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-
-        System.out.println("로그아웃되었습니다");
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

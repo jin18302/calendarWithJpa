@@ -4,6 +4,7 @@ import com.example.CalendarProject.EventDto.addEventRequest;
 import com.example.CalendarProject.EventDto.eventResponse;
 import com.example.CalendarProject.EventDto.updateEventRequest;
 import com.example.CalendarProject.Service.eventService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class EventController {
     private final eventService service;
 
     @PostMapping
-    public ResponseEntity<eventResponse> saveEvent(@RequestBody addEventRequest request){
+    public ResponseEntity<eventResponse> saveEvent(@Valid @RequestBody addEventRequest request){
        eventResponse eventResponse= service.saveEvent(request);
        return ResponseEntity.status(HttpStatus.CREATED).body(eventResponse);
     }
@@ -30,7 +31,7 @@ public class EventController {
     }
 
     @PatchMapping ("/{id}")
-    public ResponseEntity<eventResponse> updateEvent(@PathVariable Long id, @RequestBody updateEventRequest request){
+    public ResponseEntity<eventResponse> updateEvent(@PathVariable Long id, @Valid @RequestBody updateEventRequest request){
        eventResponse eventResponse = service.updateEvent(id, request);
        return ResponseEntity.status(HttpStatus.OK).body(eventResponse);
     }
