@@ -1,17 +1,15 @@
 package com.example.CalendarProject.Controller;
 
-import com.example.CalendarProject.CustomerDto.CustomerResponse;
-import com.example.CalendarProject.CustomerDto.joinUpCustomerRequest;
-import com.example.CalendarProject.CustomerDto.loginCustomerRequest;
+import com.example.CalendarProject.Dto.CustomerDto.CustomerResponse;
+import com.example.CalendarProject.Dto.CustomerDto.joinUpCustomerRequest;
+import com.example.CalendarProject.Dto.CustomerDto.loginCustomerRequest;
 import com.example.CalendarProject.Service.customerService;
-import com.example.CalendarProject.config.PasswordEncoder;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

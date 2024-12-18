@@ -1,8 +1,8 @@
 package com.example.CalendarProject.Controller;
 
-import com.example.CalendarProject.EventDto.addEventRequest;
-import com.example.CalendarProject.EventDto.eventResponse;
-import com.example.CalendarProject.EventDto.updateEventRequest;
+import com.example.CalendarProject.Dto.EventDto.addEventRequest;
+import com.example.CalendarProject.Dto.EventDto.eventResponse;
+import com.example.CalendarProject.Dto.EventDto.updateEventRequest;
 import com.example.CalendarProject.Service.eventService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

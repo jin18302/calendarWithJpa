@@ -1,4 +1,4 @@
-package com.example.CalendarProject.EventDto;
+package com.example.CalendarProject.Dto.EventDto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

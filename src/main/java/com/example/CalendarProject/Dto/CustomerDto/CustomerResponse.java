@@ -1,4 +1,4 @@
-package com.example.CalendarProject.CustomerDto;
+package com.example.CalendarProject.Dto.CustomerDto;
 
 import com.example.CalendarProject.Entity.Customer;
 import lombok.Builder;

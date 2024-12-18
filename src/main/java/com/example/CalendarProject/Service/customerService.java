@@ -1,19 +1,16 @@
 package com.example.CalendarProject.Service;
 
-import com.example.CalendarProject.CustomerDto.CustomerResponse;
-import com.example.CalendarProject.CustomerDto.joinUpCustomerRequest;
+import com.example.CalendarProject.Dto.CustomerDto.CustomerResponse;
+import com.example.CalendarProject.Dto.CustomerDto.joinUpCustomerRequest;
 import com.example.CalendarProject.Entity.Customer;
 import com.example.CalendarProject.Repository.customerRepository;
 import com.example.CalendarProject.config.PasswordEncoder;
 import lombok.*;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor

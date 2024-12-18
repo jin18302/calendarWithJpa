@@ -1,4 +1,4 @@
-package com.example.CalendarProject.CustomerDto;
+package com.example.CalendarProject.Dto.CustomerDto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
