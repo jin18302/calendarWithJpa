@@ -7,8 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface customerRepository extends JpaRepository<Customer,String> {
-    Optional<Customer> findCustomerById(Long id);
-
-    void deleteById(Long id);
+public interface customerRepository extends JpaRepository<Customer,Long> {
 }

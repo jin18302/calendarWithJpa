@@ -37,7 +37,7 @@ public class customerService {
     }
 
     public CustomerResponse findById(Long id){
-        Optional<Customer> findCustomer = repository.findCustomerById(id);
+        Optional<Customer> findCustomer = repository.findById(id);
 
         if(findCustomer.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
@@ -50,7 +50,7 @@ public class customerService {
 
     public CustomerResponse updateInfo(Long id, updateCustomerRequest request){
 
-        Optional<Customer> findCustomer = repository.findCustomerById(id);
+        Optional<Customer> findCustomer = repository.findById(id);
 
         if(findCustomer.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");
@@ -64,7 +64,7 @@ public class customerService {
 
     @Transactional
     public void deleteCustomer(Long id){
-       Optional<Customer> findCustomer = repository.findCustomerById(id);
+       Optional<Customer> findCustomer = repository.findById(id);
 
        if(findCustomer.isEmpty()){
            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email was not found");

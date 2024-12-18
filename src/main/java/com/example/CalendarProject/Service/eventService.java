@@ -62,10 +62,6 @@ public class eventService {
 
         Event event = findEvent.get();
 
-        if (event.getEmail().equals(request.getEmail())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The emails don't match.");
-        }
-
         repository.deleteById(id);
     }
 
