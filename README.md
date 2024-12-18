@@ -5,7 +5,10 @@
 | 일정조회     | calendar/event/{id}                                      | ```get```        | 없음                                                        | {"name":"String",  "text":"String", "CreationDate":"String", "ModificationDate":"String"}       | ```200```        |
 | 일정수정     | calendar/event/{id}                                      | ```patch```       | { "name":String "password":"String" "text":"String" }       | {"name":"String",  "text":"String", "CreationDate":"String", "ModificationDate":"String"}       | ```200```        |
 |일정삭제         | calendar/event/{id}| ```delete```     |  {"password":"String"}   | 없음  | ```204```        |
-|회원추가|calendar/customer|```post```|{"email":"String", "name":"String"}|{"id":"Long", "email":"String", "name":"String","joindate":"LocalDateTime"}|```200```
+|회원추가|calendar/customer|```post```|{"email":"String", "name":"String"}|{"id":"Long", "email":"String", "name":"String","joindate":"LocalDateTime"}|```201```
+|회원조회|calendar/customer/{id}|```get```|없음|{"id":"Long", "email":"String", "name":"String","joindate":"LocalDateTime"}|```200```
+|회원정보수정|calendar/customer/{id}|```patch```|{"email":"String", "name":"String", "password":"String"}|{"id":"Long", "email":"String", "name":"String","joindate":"LocalDateTime"}|```200```
+|회원삭제|calendar/customer/{id}|```delete```|{"email":"String"}|없음|```200```
 
 
 
