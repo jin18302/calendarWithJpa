@@ -28,10 +28,9 @@ public class Customer {
     @Column(name="name")
     private String name;
 
-
-//    @OneToMany
-//    @Column(name = "events")
-//    private List<Event> events;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "customer_id")
+    private List<Event> events;
 
     @CreatedDate
     @Column(name="join_date")

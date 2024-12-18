@@ -43,7 +43,7 @@ public class Event {
 
 
     @Builder
-    public Event(String title, String content) {
+    public Event(String title, String content, Long customerId) {
         this.title = title;
         this.content = content;
     }
