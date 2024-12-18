@@ -26,6 +26,7 @@ public class Event {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer_id;
+    
 
     @Column(name = "title", nullable = false)
     private String title;
