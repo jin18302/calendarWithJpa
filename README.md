@@ -1,4 +1,4 @@
-## Project duration
+ ## 📅Project duration
 2024.12.12~2024.12.18
 
 ## Development Environment
