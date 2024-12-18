@@ -4,6 +4,7 @@ import com.example.CalendarProject.CustomerDto.CustomerResponse;
 import com.example.CalendarProject.CustomerDto.joinUpCustomerRequest;
 import com.example.CalendarProject.CustomerDto.loginCustomerRequest;
 import com.example.CalendarProject.Service.customerService;
+import com.example.CalendarProject.config.PasswordEncoder;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -31,10 +32,10 @@ public class CustomerController {
     @PostMapping("/login")
     public ResponseEntity<Void> login(@Valid @RequestBody loginCustomerRequest request, HttpServletResponse response) {
 
-        String customerEmail = service.login(request.getEmail(), request.getPassword());
+        Long customerId = service.login(request.getEmail(), request.getPassword());
 
 
-        Cookie cookie = new Cookie("user_email", customerEmail);
+        Cookie cookie = new Cookie("user_id", customerId+"");
 
 
         response.addCookie(cookie);
@@ -43,7 +44,7 @@ public class CustomerController {
 
     @PostMapping("/logout")
     public ResponseEntity<Void> logOut(HttpServletResponse response){
-        Cookie cookie = new Cookie("user_email",null);
+        Cookie cookie = new Cookie("user_id",null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
 

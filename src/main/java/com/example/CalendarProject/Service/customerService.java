@@ -4,6 +4,7 @@ import com.example.CalendarProject.CustomerDto.CustomerResponse;
 import com.example.CalendarProject.CustomerDto.joinUpCustomerRequest;
 import com.example.CalendarProject.Entity.Customer;
 import com.example.CalendarProject.Repository.customerRepository;
+import com.example.CalendarProject.config.PasswordEncoder;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -21,43 +22,35 @@ import java.util.regex.Pattern;
 public class customerService {
 
     private final customerRepository repository;
+    private final PasswordEncoder passwordEncoder;
 
     public CustomerResponse signUpCustomer(joinUpCustomerRequest request){
-//        Pattern pattern = Pattern.compile("\\w+@\\w+\\.\\w+");
-//        Matcher matcher = pattern.matcher(request.getEmail());
-//
-//        if(!matcher.matches()){
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The email format is incorrect."+request.getEmail());
-//        }
+        /*TODO: 응답객체에는 사용자가 입력한 비밀번호를 담아서 보내고, 엔티티객체에는 인코딩된 비밀번호를 저장한다
+         */
+
+        String encode = passwordEncoder.encode(request.getPassword());//인코딩된 비밀번호
+        request.setPassword(encode);
 
         Customer customer = repository.save(request.toEntity());
 
-        System.out.println("회원가입되었습니다");
+        System.out.println(encode);
 
         return new CustomerResponse(customer);
     }
 
-    public String login(String email, String password){
+    public Long login(String email, String password){
         Optional<Customer> findCustomer = repository.findCustomerByEmail(email);
-        System.out.println("-");
 
         if(findCustomer.isEmpty()){
-
             throw new ResponseStatusException(HttpStatusCode.valueOf(401), "No member signed up with that email exists");
-
         }
+
         Customer customer = findCustomer.get();
 
-        if(!customer.getPassword().equals(password)){
-            throw new ResponseStatusException(HttpStatusCode.valueOf(401),"Password doesn't match");
+        if(passwordEncoder.matches(password, customer.getPassword())){
+            return customer.getId();
         }
-
-
-        System.out.println(customer.getEmail());
-
-        System.out.println("로그인되었습니다");
-
-        return customer.getEmail();
+        throw new ResponseStatusException(HttpStatusCode.valueOf(401),"Password doesn't match");
     }
 
 }
