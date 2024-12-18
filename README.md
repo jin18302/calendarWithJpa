@@ -1,4 +1,4 @@
-## API명새서
+## API명세서
 
 ## ERD
 ```mermaid
