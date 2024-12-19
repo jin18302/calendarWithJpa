@@ -31,32 +31,29 @@
 ```mermaid
 erDiagram
 
-   EVENT {
-        Long id
-        String title
-        String content
-        CUSTOMER customer_id
-        LocalDatetime create_at
-        LocalDatetime update_at
+    EVENT {
+        BIGINT id PK
+        VARCHAR(255) title
+        TEXT content
+        BIGINT customer_id FK
+        DATETIME create_at
+        DATETIME update_at
     }
 
-    CUSTOMER{
-        Long id
-        String email
-        String password
-        String name
-        LocalDatetime join_date
+    CUSTOMER {
+        BIGINT id PK
+        VARCHAR(255) email
+        VARCHAR(255) password
+        VARCHAR(255) name
+        DATETIME join_date
     }
 
-    COMMENT{
-        Long id
-        CUSTOMER customer_id
-        EVENT event_id
-        String title
-        String content
-        LocalDatetime create_at
-        LocalDatetime update_at
-    }
-    CUSTOMER ||--o{ EVENT : "create"
-    CUSTOMER ||--o{ COMMENT : "create"
-    EVENT ||--o{ COMMENT : "create"
+    COMMENT {
+        BIGINT id PK
+        BIGINT customer_id FK
+        BIGINT event_id FK
+        VARCHAR(255) title
+        TEXT content
+        DATETIME create_at
+        DATETIME update_at
+
