@@ -31,6 +31,8 @@
 ```mermaid
 erDiagram
 
+   erDiagram
+
     EVENT {
         BIGINT id PK
         VARCHAR(255) title
@@ -56,4 +58,8 @@ erDiagram
         TEXT content
         DATETIME create_at
         DATETIME update_at
+    }
 
+    CUSTOMER ||--o{ EVENT : "creates"
+    CUSTOMER ||--o{ COMMENT : "creates"
+    EVENT ||--o{ COMMENT : "has"
