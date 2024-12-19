@@ -47,8 +47,6 @@ public class CustomerController {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
 
-        System.out.println("로그아웃되었습니다");
-
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
