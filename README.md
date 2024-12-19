@@ -29,7 +29,6 @@
 
 ## ERD
 ```mermaid
-erDiagram
 
    erDiagram
 
