@@ -29,20 +29,17 @@
 ```mermaid
 erDiagram
     CUSTOMER {
-        BIGINT id
+        BIGINT id PK
         VARCHAR(255) email
         VARCHAR(255) name
         DATETIME join_date
-        "PRIMARY KEY (id)"
     }
     EVENT {
-        BIGINT id
-        BIGINT customer_id
+        BIGINT id PK
+        BIGINT customer_id FK
         VARCHAR(255) title
         TEXT content
         DATETIME create_at
         DATETIME update_at
-        "PRIMARY KEY (id)"
-        "FOREIGN KEY (customer_id) REFERENCES CUSTOMER(id)"
     }
-    CUSTOMER ||--o{ EVENT : creates
+    CUSTOMER ||--o{ EVENT : "creates"
