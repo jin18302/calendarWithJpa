@@ -22,10 +22,11 @@
 erDiagram
 
    EVENT {
-        Long id
-        String password
-        String title
-        String content
-        LocalDatetime create_at
-        LocalDatetime update_at
+        id BIGINT
+        password VARCHAR(255)
+        title VARCHAR(255)
+        content TEXT
+        create_at DATETIME
+        update_at DATETIME
     }
+
