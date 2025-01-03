@@ -1,31 +1,32 @@
 package com.example.CalendarProject.Entity;
 
-import com.example.CalendarProject.Dto.EventDto.updateEventRequest;
+import com.example.CalendarProject.Customer.Entity.Customer;
+import com.example.CalendarProject.Event.Dto.AddEventRequest;
+import com.example.CalendarProject.Event.Dto.UpdateEventRequest;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import java.time.LocalDateTime;
 
 
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
+@Entity @Table(name="event")
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Entity
-@Table(name="event", schema = "calendarlevel2")
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer_id;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Customer customer;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -42,13 +43,13 @@ public class Event {
     private LocalDateTime updateAt;
 
 
-    @Builder
-    public Event(String title, String content) {
-        this.title = title;
-        this.content = content;
+    public Event(Customer customer, AddEventRequest request) {
+        this.customer = customer;
+        this.title = request.getTitle();
+        this.content = request.getContent();
     }
 
-    public void update(updateEventRequest request) {
+    public void update(UpdateEventRequest request) {
         this.title = request.getTitle();
         this.content = request.getContent();
     }
