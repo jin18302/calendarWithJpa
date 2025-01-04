@@ -1,4 +1,4 @@
-package com.example.CalendarProject.Common.Exception;
+package com.example.CalendarProject.Event.Exception;
 
 import com.example.CalendarProject.Common.Code.ErrorCode;
 import lombok.Getter;

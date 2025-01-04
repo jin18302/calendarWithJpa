@@ -1,9 +1,9 @@
-package com.example.CalendarProject.Messageresponse;
+package com.example.CalendarProject.Common.Messageresponse;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
+@NoArgsConstructor
 public class ExceptionMessageResponse {
     private int status;
     private String errCode;
@@ -15,10 +15,4 @@ public class ExceptionMessageResponse {
         this.errCode = errCode;
         this.Message = message;
     }
-
-//    public ExceptionMessageResponse(HttpStatusCode code, String Message) {
-//        this.status = status;
-//        this.code = code;
-//        this.Message = Message;
-//    }
 }

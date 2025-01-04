@@ -3,9 +3,11 @@ package com.example.CalendarProject.Comment.Entity;
 import com.example.CalendarProject.Comment.Dto.AddCommentRequest;
 import com.example.CalendarProject.Comment.Dto.UpdateCommentRequest;
 import com.example.CalendarProject.Customer.Entity.Customer;
-import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Event.Entity.Event;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -31,6 +33,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "event_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Event event;
 
     @Column(name="content")

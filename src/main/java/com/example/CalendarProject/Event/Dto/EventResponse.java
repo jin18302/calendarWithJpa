@@ -1,6 +1,6 @@
 package com.example.CalendarProject.Event.Dto;
 
-import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Event.Entity.Event;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

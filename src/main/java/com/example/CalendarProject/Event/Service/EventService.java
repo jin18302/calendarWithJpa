@@ -1,9 +1,14 @@
 package com.example.CalendarProject.Event.Service;
 
+import com.example.CalendarProject.Common.Code.ErrorCode;
+import com.example.CalendarProject.Event.Exception.EventNullException;
+import com.example.CalendarProject.Customer.Exception.InvalidCustomerInfoException;
+import com.example.CalendarProject.Customer.Entity.Customer;
+import com.example.CalendarProject.Customer.Repository.CustomerRepository;
 import com.example.CalendarProject.Event.Dto.AddEventRequest;
 import com.example.CalendarProject.Event.Dto.UpdateEventRequest;
 import com.example.CalendarProject.Event.Dto.EventResponse;
-import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Event.Entity.Event;
 import com.example.CalendarProject.Event.Repository.EventRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +26,7 @@ public class EventService {
     public EventResponse saveEvent(Long customerId, AddEventRequest request) {
 
         Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(() -> new InvalidUserInfoException(ErrorCode.NULL_POINT_EVENT));
+                .orElseThrow(() -> new InvalidCustomerInfoException(ErrorCode.NULL_POINT_EVENT));
 
         Event event = new Event(customer, request);
 

@@ -1,4 +1,4 @@
-package com.example.CalendarProject.Entity;
+package com.example.CalendarProject.Event.Entity;
 
 import com.example.CalendarProject.Customer.Entity.Customer;
 import com.example.CalendarProject.Event.Dto.AddEventRequest;

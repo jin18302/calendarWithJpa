@@ -21,7 +21,7 @@ public class CommentController {
     public ResponseEntity<CommentResponse> addComment(@Valid @RequestBody AddCommentRequest request,
                                                       @PathVariable(name = "customerid")Long customerId,
                                                       @PathVariable(name = "eventid")Long eventId) {
-        CommentResponse response = service.saveComment(customerId, eventId, request);
+        CommentResponse response = service.saveComment(request,customerId, eventId );
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

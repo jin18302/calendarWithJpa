@@ -1,4 +1,4 @@
-package com.example.CalendarProject.Filter;
+package com.example.CalendarProject.Common.Filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @Slf4j
 public class loginFilter implements Filter {
-    final String[] WHITE_URL = {"/calendar/comment","/calendar/customer/signup", "/calendar/customer/login", "/calendar/customer/logout" };
+    final String[] WHITE_URL = {"/calendar/comment","/calendar/customers/signup", "/calendar/customer/login", "/calendar/customer/logout" };
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

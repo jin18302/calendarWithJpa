@@ -6,7 +6,7 @@ import lombok.*;
 
 @Getter
 @Setter
-public class JoinUpCustomerRequest {
+public class SignUpCustomerRequest {
     @NotBlank
     private String name;
 

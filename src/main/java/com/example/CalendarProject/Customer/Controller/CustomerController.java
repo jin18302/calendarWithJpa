@@ -2,12 +2,13 @@ package com.example.CalendarProject.Customer.Controller;
 
 import com.example.CalendarProject.Common.Code.SuccessCode;
 import com.example.CalendarProject.Customer.Dto.CustomerSecessionRequest;
-import com.example.CalendarProject.Customer.Dto.JoinUpCustomerRequest;
+import com.example.CalendarProject.Customer.Dto.SignUpCustomerRequest;
 import com.example.CalendarProject.Customer.Dto.LoginCustomerRequest;
-import com.example.CalendarProject.Messageresponse.SuccessMessageResponse;
+import com.example.CalendarProject.Common.Messageresponse.SuccessMessageResponse;
 import com.example.CalendarProject.Customer.Service.CustomerService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class CustomerController {
     private final CustomerService service;
 
     @PostMapping("/signup")
-    public ResponseEntity<SuccessMessageResponse> joinUp(@RequestBody JoinUpCustomerRequest request) {
+    public ResponseEntity<SuccessMessageResponse> joinUp(@Valid @RequestBody SignUpCustomerRequest request) {
         log.info("컨트롤러가 호출되었습니다");
 
         service.signUpCustomer(request);
@@ -35,7 +36,7 @@ public class CustomerController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginCustomerRequest request, HttpServletResponse response) {
+    public ResponseEntity<SuccessMessageResponse> login(@Valid @RequestBody LoginCustomerRequest request, HttpServletResponse response) {
         log.info("컨트롤러가 호출되었습니다");
 
         Long customerId = service.login(request.getEmail(), request.getPassword());
@@ -43,7 +44,9 @@ public class CustomerController {
         Cookie cookie = new Cookie("user_id", customerId + "");
 
         response.addCookie(cookie);
-        return ResponseEntity.status(HttpStatus.OK).body("로그인 되었습니다");
+
+        SuccessMessageResponse responseMessage = new SuccessMessageResponse(SuccessCode.SIGN_UP);
+        return ResponseEntity.status(HttpStatus.OK).body(responseMessage);
     }
 
 

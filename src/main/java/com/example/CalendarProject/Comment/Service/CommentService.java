@@ -6,19 +6,15 @@ import com.example.CalendarProject.Comment.Dto.UpdateCommentRequest;
 import com.example.CalendarProject.Comment.Entity.Comment;
 import com.example.CalendarProject.Comment.Repository.CommentRepository;
 import com.example.CalendarProject.Common.Code.ErrorCode;
-import com.example.CalendarProject.Common.Exception.CommentNullException;
-import com.example.CalendarProject.Common.Exception.EventNullException;
-import com.example.CalendarProject.Common.Exception.InvalidUserInfoException;
+import com.example.CalendarProject.Comment.Exception.CommentNullException;
+import com.example.CalendarProject.Event.Exception.EventNullException;
+import com.example.CalendarProject.Customer.Exception.InvalidCustomerInfoException;
 import com.example.CalendarProject.Customer.Entity.Customer;
 import com.example.CalendarProject.Customer.Repository.CustomerRepository;
-import com.example.CalendarProject.Entity.Event;
+import com.example.CalendarProject.Event.Entity.Event;
 import com.example.CalendarProject.Event.Repository.EventRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +27,7 @@ public class CommentService {
 
     public CommentResponse saveComment(AddCommentRequest request, Long customerId, Long eventId){
         Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(()-> new InvalidUserInfoException(ErrorCode.NULL_POINT_CUSTOMER));
+                .orElseThrow(()-> new InvalidCustomerInfoException(ErrorCode.NULL_POINT_CUSTOMER));
 
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(()-> new EventNullException(ErrorCode.NULL_POINT_EVENT));

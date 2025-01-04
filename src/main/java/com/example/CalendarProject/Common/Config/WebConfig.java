@@ -1,6 +1,6 @@
-package com.example.CalendarProject.Config;
+package com.example.CalendarProject.Common.Config;
 
-import com.example.CalendarProject.Filter.loginFilter;
+import com.example.CalendarProject.Common.Filter.loginFilter;
 import jakarta.servlet.Filter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
