@@ -1,3 +1,15 @@
+## 프로젝트 설명
+
+기존 구현코드의 연관관계 구현 부분 수정 및, casecade구현
+</br>
+globarExceptionHandler를 사용한 예외처리를 통해 클라이언트에게 예외의 원인을 제공
+</br>
+sucessCode와 exceptionCode 를 enum타입으로 지정
+</br>
+요청을 성공적으로 처리했지만 repository에 데이터를 넘길 필요가 없을 때 MessageResponse를 통한 성공메시지 반환
+
+
+
 ## API명세서
 
 | 기능         | url                                        | httpmethod | request                                                     | response                                                                                        | HttpStatus |
